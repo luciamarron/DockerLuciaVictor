@@ -1,0 +1,66 @@
+# Ejercicio 3
+
+> Realizado por Lucía Marrón Díaz
+
+[TOC]
+
+## Apartado 1
+
+Crea una red bridge redbd.
+
+```bash
+sudo docker network create redbd
+```
+
+![image-20240228103835957](./Ejercicio3Luc%C3%ADa.assets/image-20240228103835957.png)
+
+## Apartado 2
+
+Crea un contenedor con una imagen de mariaDB que estará en la red redbd . Este
+contenedor se ejecutará en segundo plano, y será accesible a través del puerto 3306. (Es
+necesario definir la contraseña del usuario root y un volumen de datos persistente).
+
+```
+sudo docker run -d --name mysql-container --network redbd -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -v mysql-data:/var/lib
+```
+
+![image-20240228105120328](/home/cliente/snap/typora/86/.config/Typora/typora-user-images/image-20240228105120328.png)
+
+Comprobamos que el contenedor se ha creado correctamente:
+
+```bash
+sudo docker ps
+```
+
+![image-20240228105353693](/home/cliente/snap/typora/86/.config/Typora/typora-user-images/image-20240228105353693.png)
+
+## Apartado 3
+
+Crear un contenedor con Adminer que se pueda conectar al contenedor de la BD.
+
+```bash
+sudo docker run -d --name adminer-container --network redbd -p 8080:8080 adminer
+```
+
+![image-20240228105957462](/home/cliente/snap/typora/86/.config/Typora/typora-user-images/image-20240228105957462.png)
+
+## Apartado 4
+
+Comprobar que el contenedor Adminer puede conectar con el contenedor mysql abriendo un navegador web y accediendo a la URL: http://localhost:8080.
+
+Se ha tenido que liberar el puerto, ya que estaba siendo utilizado por otro proceso de ejercicio anteriores:
+
+Con estos comandos vemos los procesos que estan en el puerto 8080 y la hora a la que han sido creados
+
+```bash
+sudo lsof -i :8080
+ps -p <PID> -o lstart
+```
+
+Por último, detenemos el proceso que no estamos utilizando:
+
+```bash
+sudo kill -9 <PID>
+```
+
+![image-20240228110555606](/home/cliente/snap/typora/86/.config/Typora/typora-user-images/image-20240228110555606.png)
