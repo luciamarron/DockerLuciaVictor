@@ -1,5 +1,5 @@
 # Ejercicio 5 Parte Lucía
-Primero hago un pull del ejercicio 5 de la parte de Víctor
+Primero hago un pull del ejercicio 5 de la parte de Víctor:
 ```bash
 sudo docker pull victor9/ejercicio5:v1
 ```
