@@ -1,7 +1,0 @@
-version: '3.1'
-services:
-  cmatrix:
-    container_name: cmatrix-container
-    image: nickleefly/cmatrix:latest
-    restart: always
-    tty: true
