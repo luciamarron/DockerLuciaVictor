@@ -1,7 +1,10 @@
 ## Ejercio 2 - Portainer
 
 ##### Se descarga Portainer usando este comando :
-
+```bash
+docker pull portainer/portainer
+```
+##### Ejecutamos la imagen con este comando: 
 ```bash
 victor@dockerej2:~$ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 ```
