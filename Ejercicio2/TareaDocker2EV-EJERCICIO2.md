@@ -16,7 +16,7 @@ victor@dockerej2:~$ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/
 
 Accedemos a Portainer desde `http://192.168.56.104:9000` en la maquina cliente. 
 
-![image-20240226102847154](.assets/typora-user-images/image-20240226102847154.png)
+![imagen](https://github.com/luciamarron/DockerLuciaVictor/assets/100193393/255d0062-a775-4274-9005-3da90facd750)
 
 
 
